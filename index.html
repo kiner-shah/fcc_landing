@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+		<style>
+			* {
+				box-sizing: border-box;
+			}
+			body {
+				margin: 0;
+				font-family: sans-serif, Arial;
+			}
+			#header {
+				width: 100%;
+				top: 0;
+				display: flex;
+				align-items: center;
+				border-bottom: 1px solid gray;
+				background-color: whitesmoke;
+			}
+			#header-img-div {
+				display: inline-block;
+				width: 10%;
+			}
+			#header-img {
+				max-width: 100%;
+			}
+			#nav-bar {
+				display: inline-block;
+				width: 90%;
+				text-align: right;
+			}
+			.nav-link {
+				margin: 1%;
+				padding: 1%;
+				border: 1px solid black;
+				text-decoration: none;
+				color: black;
+			}
+			.nav-link:hover {
+				background-color: black;
+				color: whitesmoke;
+			}
+			#home {
+				width: 100%;
+				height: 80vh;
+				text-align: center;
+				background-color: darkgray;
+				color: white;
+				font-size: 10vw;
+				padding-top: 10%;
+			}
+			#home p {
+				margin: 0;
+			}
+			#about {
+				text-align: center;
+				font-size: 5vw;
+			}
+			#about iframe {
+				width: 560px;
+				height: 315px;
+			}
+			.fixed {
+				position: fixed;
+				top: 0;
+				z-index: 2;
+			}
+			#get-in-touch {
+				text-align: center;
+			}
+			#get-in-touch p {
+				font-size: 5vw;
+			}
+
+			@media screen and (max-width: 560px) {
+				#about {
+					margin: 0;
+				}
+				#about iframe {
+					max-width: 100%;
+				}
+			}
+		</style>
+		<script>
+			var header_offset_top;
+			window.onload = function() {
+				header_offset_top = document.getElementById("header").offsetTop;
+			}
+			window.onscroll = function() {
+				var header = document.getElementById("header");
+				if (window.pageYOffset > header_offset_top) {
+					header.classList.add("fixed");
+				}
+				else {
+					header.classList.remove("fixed");
+				}
+			}
+		</script>
+	</head>
+
+	<body>
+	    <header id="header">
+	      <div id="header-img-div">
+	        <img id="header-img" src="https://dynamic.brandcrowd.com/asset/logo/8ec4a563-130d-4ad6-b350-765efed26ea7/logo?v=4">
+	      </div>
+	      <nav id="nav-bar">
+	        <a href="#home" class="nav-link">Home</a>
+	        <a href="#about" class="nav-link">About</a>
+	        <a href="#get-in-touch" class="nav-link">Get in touch</a>
+	      </nav>
+	    </header>
+	    <div id="home">
+	    	<p>Transform the way you listen to music</p>
+	    </div>
+	    <div id="about">
+	    	<p>Watch how we transform your music experience</p>
+	    	<iframe id="video" src="https://www.youtube.com/embed/uilkmUoXoLU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+	    </div>
+	    <div id="get-in-touch">
+	    	<p>Get in touch with us</p>
+	    	<form id="form" action="https://www.freecodecamp.com/email-submit">
+	    		<label for="email" id="email-label">Email:</label>
+	    		<input id="email" type="email" name="email" placeholder="E.g. john@example.com" required>
+	    		<input id="submit" type="submit" value="Submit">
+	    	</form>
+	    </div>
+	</body>
+</html>
